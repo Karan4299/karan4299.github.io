@@ -1,0 +1,117 @@
+@mixin flexify($direction, $justify, $align) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+.main-cotainer {
+	font-size: 10px;
+	width: 100vw;
+	height: 100vh;
+	background-color: #0a1852;
+	@include flexify(row, center, center);
+	color: white;
+	font-family: "Roboto", sans-serif;
+
+	.game-container {
+		width: 60%;
+		height: 60%;
+		// background-color: red;
+		@include flexify(column, flex-start, center);
+        position: relative;
+
+		.game-type-the-alpha-container {
+			font-size: 2rem;
+			font-weight: 800;
+
+			@media screen and (max-width: 466px) {
+				font-size: 1.6rem;
+			}
+
+            @media screen and (max-width: 360px) {
+				font-size: 1.4rem;
+			}
+		}
+
+		.game-header-below-description-container {
+			font-size: 0.9rem;
+			margin-top: 8px;
+			width: 51%;
+			min-width: 320px;
+
+            @media screen and (max-width: 466px) {
+				font-size: 0.7rem;
+			}
+		}
+
+		.game-aphabet-display-field {
+			width: 50%;
+			height: 25%;
+			background-color: white;
+			@include flexify(row, center, center);
+			color: #028d32;
+			font-size: 4rem;
+			font-weight: 800;
+			border-radius: 8px;
+			margin-top: 50px;
+			min-width: 320px;
+		}
+
+		.game-timer-container {
+			font-size: 0.9rem;
+			margin-top: 20px;
+			font-weight: 600;
+
+			span {
+				color: red;
+			}
+		}
+
+		.game-best-timer-container {
+			font-size: 0.9rem;
+			margin-top: 10px;
+			color: rgba(255, 255, 255, 0.535);
+		}
+
+		.game-input-box-container {
+			width: 50%;
+			display: grid;
+			grid-template-columns: 70% 30%;
+			grid-template-rows: 100%;
+			height: 45px;
+			border-radius: 4px;
+			overflow: hidden;
+			margin-top: 20px;
+			min-width: 320px;
+
+
+            @media screen and (max-width: 482px) {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+
+			.game-input-box {
+				height: 100%;
+				padding: 5px;
+			}
+
+			.game-input-button {
+				@include flexify(row, center, center);
+				font-size: 1rem;
+				cursor: pointer;
+				background-color: red;
+				outline: none;
+				border: none;
+				color: white;
+				text-transform: uppercase;
+
+				&:disabled {
+					opacity: 0.5;
+					cursor: not-allowed;
+				}
+			}
+		}
+	}
+}

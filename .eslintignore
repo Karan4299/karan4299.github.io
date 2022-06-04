@@ -1,0 +1,8 @@
+node_modules
+*.test.tsx
+*.json
+*.config.js
+translations.ts
+*.test.tsx
+build
+generated.ts
